@@ -20,7 +20,7 @@ import org.junit.runner.RunWith;
         glue = "com/ultra/step_definitions",
 
         dryRun = false,
-        tags = "",
+        tags = "@ultra1",
         //stepNotifications = true,
         publish = true
 

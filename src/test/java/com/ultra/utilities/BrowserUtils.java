@@ -12,6 +12,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -72,7 +73,7 @@ public class BrowserUtils {
      */
     public static void waitForInvisibilityOf(WebElement webElement) {
         //Driver.getDriver().manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
-        WebDriverWait wait = new WebDriverWait(com.ultra.utilities.Driver.getDriver(), 10);
+        WebDriverWait wait = new WebDriverWait(com.ultra.utilities.Driver.getDriver(), Duration.ofSeconds(10l));
         wait.until(ExpectedConditions.invisibilityOf(webElement));
     }
 
@@ -180,7 +181,7 @@ public class BrowserUtils {
      * @return
      */
     public static WebElement waitForVisibility(WebElement element, int timeToWaitInSec) {
-        WebDriverWait wait = new WebDriverWait(com.ultra.utilities.Driver.getDriver(), timeToWaitInSec);
+        WebDriverWait wait = new WebDriverWait(com.ultra.utilities.Driver.getDriver(), Duration.ofSeconds(timeToWaitInSec));
         return wait.until(ExpectedConditions.visibilityOf(element));
     }
 
@@ -191,8 +192,8 @@ public class BrowserUtils {
      * @param timeout
      * @return
      */
-    public static WebElement waitForVisibility(By locator, int timeout) {
-        WebDriverWait wait = new WebDriverWait(com.ultra.utilities.Driver.getDriver(), timeout);
+    public static WebElement waitForVisibility(By locator, long timeout) {
+        WebDriverWait wait = new WebDriverWait(com.ultra.utilities.Driver.getDriver(), Duration.ofSeconds(timeout));
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
@@ -204,7 +205,7 @@ public class BrowserUtils {
      * @return
      */
     public static WebElement waitForClickablility(WebElement element, int timeout) {
-        WebDriverWait wait = new WebDriverWait(com.ultra.utilities.Driver.getDriver(), timeout);
+        WebDriverWait wait = new WebDriverWait(com.ultra.utilities.Driver.getDriver(), Duration.ofSeconds(timeout));
         return wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
@@ -216,7 +217,7 @@ public class BrowserUtils {
      * @return
      */
     public static WebElement waitForClickablility(By locator, int timeout) {
-        WebDriverWait wait = new WebDriverWait(com.ultra.utilities.Driver.getDriver(), timeout);
+        WebDriverWait wait = new WebDriverWait(com.ultra.utilities.Driver.getDriver(), Duration.ofSeconds(timeout));
         return wait.until(ExpectedConditions.elementToBeClickable(locator));
 
     }
@@ -233,7 +234,7 @@ public class BrowserUtils {
             }
         };
         try {
-            WebDriverWait wait = new WebDriverWait(com.ultra.utilities.Driver.getDriver(), timeOutInSeconds);
+            WebDriverWait wait = new WebDriverWait(com.ultra.utilities.Driver.getDriver(), Duration.ofSeconds(timeOutInSeconds));
             wait.until(expectation);
         } catch (Throwable error) {
             error.printStackTrace();
@@ -463,7 +464,7 @@ public class BrowserUtils {
      * @param time
      */
     public static void waitForPresenceOfElement(By by, long time) {
-        new WebDriverWait(com.ultra.utilities.Driver.getDriver(), time).until(ExpectedConditions.presenceOfElementLocated(by));
+        new WebDriverWait(com.ultra.utilities.Driver.getDriver(), Duration.ofSeconds(time)).until(ExpectedConditions.presenceOfElementLocated(by));
     }
 
     public static boolean popUpMessage(WebElement arg0, String message, WebElement arg1) {
@@ -484,7 +485,7 @@ public class BrowserUtils {
 
     public static void waitUntilLoaderScreenDisappear(WebElement arg0) {
         try {
-            WebDriverWait wait = new WebDriverWait(com.ultra.utilities.Driver.getDriver(), 30);
+            WebDriverWait wait = new WebDriverWait(com.ultra.utilities.Driver.getDriver(), Duration.ofSeconds(30l));
             wait.until(ExpectedConditions.invisibilityOf(arg0));
         } catch (Exception e) {
             e.printStackTrace();

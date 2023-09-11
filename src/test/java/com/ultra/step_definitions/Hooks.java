@@ -1,6 +1,7 @@
 package com.ultra.step_definitions;
 
-import com.xfleet.utilities.Driver;
+import com.ultra.utilities.Driver;
+import com.ultra.utilities.Driver;
 import io.cucumber.java.After;
 import io.cucumber.java.Scenario;
 import org.openqa.selenium.OutputType;
@@ -23,13 +24,6 @@ public class Hooks {
 
         Driver.closeDriver();
 
-
     }
-
-
-
-
-
-
 
 }
